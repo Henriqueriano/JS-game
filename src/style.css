@@ -1,0 +1,12 @@
+* 
+{
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(90, 67, 67);
+}
+#gameCanvas
+{
+    background-color: white;
+    cursor: none;
+    width: 700;
+    height: 700;
+}
