@@ -65,7 +65,6 @@ const newFrame = () =>
         let gContext = gCanvas.getContext("2d");
         frameClear(gContext, gCanvas);
         frameGen(gContext, playerInfo);
-        genChildren(gContext, playerInfo);
         requestAnimationFrame(newFrame);
     };
 
@@ -84,15 +83,6 @@ const frameGen = (gameContext, objectInfo) =>
         gameContext.fillRect(x, y, 10, 10);
     };
 
-const genChildren = (gameContext, object) => 
-    {
-        gameContext.fillStyle = "red";
-        for (children in object.children) 
-            {
-                console.log("sexo");
-                gameContext.fillRect(object.x - 10 * children, object.y - 10 * children, 10, 10);
-            }
-    }
 
 // Início:
 window.onload = _game;
