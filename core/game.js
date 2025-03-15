@@ -5,9 +5,7 @@ var playerInfo =
         step: 10,
         width: 20,
         height: 20,
-        score: 0,
-        lives: 3,
-        gameOver: false
+        children: [0,0,0,0,0,0,0]
     };
 
 var object = 
@@ -60,7 +58,6 @@ const checkPlayerColision = (playerInfo, object) =>
     };
 
 
-
 // Renderização de tela:
 const newFrame = () => 
     {
@@ -68,6 +65,7 @@ const newFrame = () =>
         let gContext = gCanvas.getContext("2d");
         frameClear(gContext, gCanvas);
         frameGen(gContext, playerInfo);
+        genChildren(gContext, playerInfo);
         requestAnimationFrame(newFrame);
     };
 
@@ -85,6 +83,16 @@ const frameGen = (gameContext, objectInfo) =>
         let y = objectInfo.y;
         gameContext.fillRect(x, y, 10, 10);
     };
+
+const genChildren = (gameContext, object) => 
+    {
+        gameContext.fillStyle = "red";
+        for (children in object.children) 
+            {
+                console.log("sexo");
+                gameContext.fillRect(object.x - 10 * children, object.y - 10 * children, 10, 10);
+            }
+    }
 
 // Início:
 window.onload = _game;
