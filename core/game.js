@@ -1,4 +1,4 @@
-var playerInfo = 
+let playerInfo = 
     {
         x: 0,
         y: 0,
@@ -8,7 +8,7 @@ var playerInfo =
         children: [0,0,0,0,0,0,0]
     };
 
-var object = 
+let object = 
 {
     x: Math.random() * gameCanvas.width,
     y: Math.random() * gameCanvas.height,
@@ -16,7 +16,8 @@ var object =
     height: 20,
     alive: true
 }
-// Esse arquivo é o fluxo do jogo ao carregar a página;
+
+// Main method:
 const _game = () => 
     {
         let gCanvas = document.getElementById("gameCanvas");
@@ -49,7 +50,7 @@ const _game = () =>
             newFrame();
     };
 
-// Colisão:
+// Colision:
 const checkPlayerColision = (playerInfo, object) => 
     {
         if (playerInfo.x == object.x && playerInfo.y == object.y)
@@ -57,8 +58,7 @@ const checkPlayerColision = (playerInfo, object) =>
         return false;
     };
 
-
-// Renderização de tela:
+// Screen render:
 const newFrame = () => 
     {
         let gCanvas = document.getElementById("gameCanvas");
@@ -75,6 +75,7 @@ const frameClear = (gameContext, gameCanvas) =>
             let height = gameCanvas.height;
             gameContext.fillRect(0, 0, width, height);    
     };
+
 const frameGen = (gameContext, objectInfo) => 
     {
         gameContext.fillStyle = "blue";
@@ -84,5 +85,5 @@ const frameGen = (gameContext, objectInfo) =>
     };
 
 
-// Início:
-window.onload = _game;
+// Init:
+window.onload = _game();
