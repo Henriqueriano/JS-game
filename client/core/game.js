@@ -1,3 +1,4 @@
+// Todo: refactor for render another all players
 let playerInfo = 
     {
         x: 0,
