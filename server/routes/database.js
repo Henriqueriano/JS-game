@@ -5,7 +5,14 @@
 const express = require('express');
 const routes = express.Router();
 const playerSchema = require('../schemas/player');
+const player = require('../schemas/player');
 
+routes.get('/createPlayer', (req, res,next) => 
+    {
+        const playerSchema = new player({nickname: '', posX: 0, posY: 0});
+        playerSchema.save();
+    }
+);
 routes.post('/update_player_info/:id', async (req, res, next) => 
     {
         const _playerId = req.params.id;
